@@ -19,7 +19,7 @@ const AdminDashboard = () => {
 
     const fetchCandidates = async () => {
         try {
-            const { data } = await axios.get("http://13.60.30.111:3000/api/admin/candidates", { withCredentials: true });
+            const { data } = await axios.get("https://candidate-management-system-backend.onrender.com/api/admin/candidates", { withCredentials: true });
             setCandidates(data);
         } catch (error) {
             console.error(error);
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
     const handleCreateCandidate = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://13.60.30.111:3000/api/admin/candidate/create",
+            await axios.post("https://candidate-management-system-backend.onrender.com/api/admin/candidate/create",
                 { name, email, password, mobile, address },
                 { headers: { Authorization: localStorage.getItem("token") } }
             );
@@ -47,7 +47,7 @@ const AdminDashboard = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete(`http://13.60.30.111:3000/api/admin/candidate/delete/${id}`, { headers: { Authorization: localStorage.getItem("token") } });
+            const response = await axios.delete(`https://candidate-management-system-backend.onrender.com/api/admin/candidate/delete/${id}`, { headers: { Authorization: localStorage.getItem("token") } });
             const data = response.data;
             toast.success(data.message);
             dispatch(deleteUser(id));
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('http://13.60.30.111:3000/api/admin/signout', {
+            const response = await fetch('https://candidate-management-system-backend.onrender.com/api/admin/signout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

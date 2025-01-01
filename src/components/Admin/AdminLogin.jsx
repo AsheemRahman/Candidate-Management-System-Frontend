@@ -15,7 +15,7 @@ function AdminLogin() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://13.60.30.111:3000/api/admin/login', { email, password },{ withCredentials: true });
+            const response = await axios.post('https://candidate-management-system-backend.onrender.com/api/admin/login', { email, password },{ withCredentials: true });
             navigate('/admin/dashboard');
             dispatch(adminLogin(true));
             toast.success("Login successful!");
