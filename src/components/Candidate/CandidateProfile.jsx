@@ -67,7 +67,7 @@ function CandidateProfile() {
 
     const handleSignOut = async () => {
         try {
-            await fetch('/api/candidate/signout');
+            await fetch('http://13.60.30.111:3000/api/candidate/signout');
             dispatch(signOut());
             navigate('/candidate/login');
             toast.success('Signout successfully');
@@ -79,7 +79,7 @@ function CandidateProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`http://localhost:8080/api/candidate/upload/${currentUser._id}`, {
+            const res = await fetch(`http://13.60.30.111:3000/api/candidate/upload/${currentUser._id}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

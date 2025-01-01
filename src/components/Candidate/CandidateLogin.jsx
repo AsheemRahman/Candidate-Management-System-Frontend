@@ -15,7 +15,7 @@ function CandidateLogin() {
         e.preventDefault();
         try {
             dispatch(signInStart());
-            const response = await axios.post('http://localhost:8080/api/candidate/login', { email, password });
+            const response = await axios.post('http://13.60.30.111:3000/api/candidate/login', { email, password });
 
             if (response.data.success === false) {
                 dispatch(signInFailure(response.data));

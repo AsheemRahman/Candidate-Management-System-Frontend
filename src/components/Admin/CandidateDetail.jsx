@@ -9,7 +9,7 @@ const CandidateDetails = () => {
     useEffect(() => {
         const fetchCandidateDetails = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8080/api/admin/candidateDetail/${id}`, { withCredentials: true });
+                const { data } = await axios.get(`http://13.60.30.111:3000/api/admin/candidateDetail/${id}`, { withCredentials: true });
                 setCandidate(data);
             } catch (error) {
                 console.error(error);
